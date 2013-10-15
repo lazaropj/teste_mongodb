@@ -5,6 +5,7 @@ import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.view.Results;
 import br.com.linkout.crudNosql.DAO.MongoDAO;
 import br.com.linkout.crudNosql.model.Mural;
 
@@ -14,6 +15,7 @@ public class PrincipalController {
 	
 	private Result result;
 	private MongoDAO dao;
+	private static String banco;
 	
 	public PrincipalController(Result result,MongoDAO dao) {
 		this.result = result;
@@ -23,15 +25,15 @@ public class PrincipalController {
 	@Get
 	@Path("/index/{banco}")
 	public void index(String banco){
+		PrincipalController.banco = banco;
 		result.include("ghoma", "ghoma");
 	}
 	
 	@Post
 	@Path("/salvar")
 	public void salvar(Mural mural){
-		System.out.println("ASHDGIJDHJSDHJDFHGHDSLJKDS");
 		dao.save(mural);
-		result.nothing();
+		this.result.forwardTo(this).index(banco);
 	}
 
 }
