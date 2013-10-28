@@ -1,6 +1,10 @@
 package br.com.linkout.crudNosql.DAO;
 
 import java.net.UnknownHostException;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
 
 import br.com.caelum.vraptor.ioc.Component;
 import br.com.linkout.crudNosql.model.Mural;
@@ -14,8 +18,11 @@ import com.mongodb.MongoClientURI;
 @Component
 public class MongoDAO {
 	
-	public void save(Mural mural){
-		
+	@Autowired
+	private MongoTemplate mongoTemplate;
+
+	public void save(Mural mural) {
+
 		try {
 			DB db = getConexao();
 			BasicDBObject objeto = new BasicDBObject();
@@ -24,11 +31,11 @@ public class MongoDAO {
 			objeto.put("dt_nascimento", mural.getDtNascimento());
 			DBCollection dbs = db.getCollection("lazaro");
 			dbs.save(objeto);
-			System.out.println("TOTAL DE REGISTROS: " + dbs.getCount());			
+			System.out.println("TOTAL DE REGISTROS: " + dbs.getCount());
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
 		}
-		
+
 	}
 
 	private DB getConexao() throws UnknownHostException {
@@ -37,6 +44,10 @@ public class MongoDAO {
 		MongoClient client = new MongoClient(uri);
 		DB db = client.getDB(uri.getDatabase());
 		return db;
+	}
+
+	public List<Mural> listarRecadosDoMural() {		
+		return mongoTemplate.findAll(Mural.class, "lazaro");
 	}
 
 }

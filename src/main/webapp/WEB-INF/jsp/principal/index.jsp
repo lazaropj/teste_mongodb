@@ -22,6 +22,21 @@
 		</form>
 	</fieldset>
 	
+	<table border="1">
+		<thead>
+			<tr>
+				<td>Nome:</td>
+				<td>URL:</td>
+			</tr>
+		</thead>
+		<c:forEach items="${listaDeRecados}" var="recado">
+			<tr>
+				<td>${recado.nome}</td>
+				<td>${recado.url}</td>
+			</tr>
+		</c:forEach>
+	</table>
+	
 
 </body>
 </html>

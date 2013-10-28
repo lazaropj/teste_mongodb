@@ -1,11 +1,12 @@
 package br.com.linkout.crudNosql.controller;
 
+import java.util.List;
+
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
-import br.com.caelum.vraptor.view.Results;
 import br.com.linkout.crudNosql.DAO.MongoDAO;
 import br.com.linkout.crudNosql.model.Mural;
 
@@ -26,14 +27,21 @@ public class PrincipalController {
 	@Path("/index/{banco}")
 	public void index(String banco){
 		PrincipalController.banco = banco;
-		result.include("ghoma", "ghoma");
+		listarRecados();
 	}
 	
 	@Post
 	@Path("/salvar")
 	public void salvar(Mural mural){
 		dao.save(mural);
+		listarRecados();
 		this.result.forwardTo(this).index(banco);
+	}
+
+	private void listarRecados() {
+		List<Mural> listaDeRecados = dao.listarRecadosDoMural();
+		this.result.include("listaDeRecados", listaDeRecados);
+		
 	}
 
 }

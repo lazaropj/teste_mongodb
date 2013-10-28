@@ -1,9 +1,14 @@
 package br.com.linkout.crudNosql.model;
 
 import org.joda.time.LocalDate;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document
 public class Mural {
 	
+	@Id
+	private String id;
 	private String nome;
 	private String url;
 	private LocalDate dtNascimento;
