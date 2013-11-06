@@ -7,7 +7,7 @@
 		<link href="${pageContext.request.contextPath}/resources/css/bootstrap.css" rel="stylesheet">
 
     	<!-- Custom styles for this template -->
-    	<link href="/${pageContext.request.contextPath}/resources/css/starter-template.css" rel="stylesheet">
+    	<link href="${pageContext.request.contextPath}/resources/css/starter-template.css" rel="stylesheet">
 	</head>
 
 <div class="navbar navbar-inverse navbar-fixed-top">
