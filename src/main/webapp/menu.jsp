@@ -4,7 +4,7 @@
 <head>
 		<meta charset="UTF-8">
 		<title>Linkout TI</title>
-		<link href="/crudNosql//resources/css/bootstrap.css" rel="stylesheet">
+		<link href="${pageContext.request.contextPath}/resources/css/bootstrap.css" rel="stylesheet">
 
     	<!-- Custom styles for this template -->
     	<link href="/crudNosql//resources/css/starter-template.css" rel="stylesheet">
