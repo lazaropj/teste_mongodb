@@ -6,7 +6,7 @@
 			<header>
 				<h1>Teste de CRUD com NoSQL</h1>
 			</header>
-			<h3>AplicaÁ„o para testar v·rios cruds com diferentes bancos.</h3>
+			<h3>Aplica√ß√£o para testar v√°rios cruds com diferentes bancos.</h3>
 		</article>
 	</body>
 </html>
