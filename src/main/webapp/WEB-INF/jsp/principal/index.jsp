@@ -2,9 +2,10 @@
          pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" ng-app>
 	<jsp:include page="../../../menu.jsp" />
-	<body>
+	<script src="${pageContext.request.contextPath}/resources/js/controller/principalController.js"  ></script>
+	<body ng-controller="principalController">
 		<fieldset>
 			<legend>Deixe seu recado</legend>
 			<form action="<c:url value="/principal/salvar"/>" method="post">
@@ -32,5 +33,7 @@
 				</tr>
 			</c:forEach>
 		</table>
+		<a href="#" ng-click="testandoAngular()"> Testando o ANgular </a>
+		{{teste}}
 	</body>
 </html>

@@ -8,6 +8,8 @@
 
     	<!-- Custom styles for this template -->
     	<link href="${pageContext.request.contextPath}/resources/css/starter-template.css" rel="stylesheet">
+    	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.4/angular.min.js"></script>
+    	
 	</head>
 
 <div class="navbar navbar-inverse navbar-fixed-top">
